@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: obra-postgres
+    environment:
+      POSTGRES_DB: obradb
+      POSTGRES_USER: obra
+      POSTGRES_PASSWORD: obra
+    ports:
+      - "5433:5432"
+    volumes:
+      - obra-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  obra-postgres-data:
