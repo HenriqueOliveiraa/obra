@@ -34,6 +34,16 @@ public class Gasto {
     private LocalDate dataCompra;
     private String fornecedor;
 
+    @Enumerated(EnumType.STRING)
+    private StatusMaterial statusMaterial;
+
+    private String responsavelRecebimento;
+
+    @Enumerated(EnumType.STRING)
+    private CategoriaOrcamento etapaCategoria;
+
+    private String subcategoria;
+
     @OneToMany(mappedBy = "gasto", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Parcela> parcelas = new ArrayList<>();
 }
