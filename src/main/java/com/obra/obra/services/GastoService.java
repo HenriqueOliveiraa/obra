@@ -88,6 +88,10 @@ public class GastoService {
         gasto.setParcelado(requestDTO.getParcelado());
         gasto.setDataCompra(requestDTO.getDataCompra());
         gasto.setFornecedor(requestDTO.getFornecedor());
+        gasto.setStatusMaterial(requestDTO.getStatusMaterial());
+        gasto.setResponsavelRecebimento(requestDTO.getResponsavelRecebimento());
+        gasto.setEtapaCategoria(requestDTO.getEtapaCategoria());
+        gasto.setSubcategoria(requestDTO.getSubcategoria());
         gasto.setDiaVencimento(Boolean.TRUE.equals(requestDTO.getParcelado())
                 ? diaVencimentoOuPadrao(requestDTO.getDiaVencimento())
                 : null);
@@ -127,18 +131,12 @@ public class GastoService {
         return parcelas;
     }
 
-    /**
-     * Se a compra já passou do dia de vencimento informado nesse mês, a primeira parcela cai no mês seguinte.
-     */
     private YearMonth calcularMesPrimeiraParcela(LocalDate dataCompra, int diaVencimento) {
         return dataCompra.getDayOfMonth() < diaVencimento
                 ? YearMonth.from(dataCompra)
                 : YearMonth.from(dataCompra).plusMonths(1);
     }
 
-    /**
-     * Usa o dia informado, ajustando para o último dia do mês quando ele não existir (ex: dia 31 em fevereiro).
-     */
     private LocalDate dataVencimentoDaParcela(YearMonth mesPrimeiraParcela, int numeroParcela, int diaVencimento) {
         YearMonth mes = mesPrimeiraParcela.plusMonths(numeroParcela - 1);
         int dia = Math.min(diaVencimento, mes.lengthOfMonth());
