@@ -1,6 +1,8 @@
 package com.obra.obra.dtos.request;
 
 import com.obra.obra.entities.CategoriaGasto;
+import com.obra.obra.entities.CategoriaOrcamento;
+import com.obra.obra.entities.StatusMaterial;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -44,4 +46,8 @@ public class GastoRequestDTO {
     private LocalDate dataCompra;
 
     private String fornecedor;
+    private StatusMaterial statusMaterial;
+    private String responsavelRecebimento;
+    private CategoriaOrcamento etapaCategoria;
+    private String subcategoria;
 }
