@@ -92,6 +92,10 @@ public class GastoController {
                 gasto.getDiaVencimento(),
                 gasto.getDataCompra(),
                 gasto.getFornecedor(),
+                gasto.getStatusMaterial(),
+                gasto.getResponsavelRecebimento(),
+                gasto.getEtapaCategoria(),
+                gasto.getSubcategoria(),
                 gasto.getParcelas().stream().map(this::toParcelaResponseDTO).toList()
         );
     }

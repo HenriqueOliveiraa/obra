@@ -1,6 +1,8 @@
 package com.obra.obra.dtos.response;
 
 import com.obra.obra.entities.CategoriaGasto;
+import com.obra.obra.entities.CategoriaOrcamento;
+import com.obra.obra.entities.StatusMaterial;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,5 +26,9 @@ public class GastoResponseDTO {
     private Integer diaVencimento;
     private LocalDate dataCompra;
     private String fornecedor;
+    private StatusMaterial statusMaterial;
+    private String responsavelRecebimento;
+    private CategoriaOrcamento etapaCategoria;
+    private String subcategoria;
     private List<ParcelaResponseDTO> parcelas;
 }
