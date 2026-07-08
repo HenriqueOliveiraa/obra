@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @Table(name = "cotacoes")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cotacao {
+public class Cotacao extends AuditEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

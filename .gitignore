@@ -38,3 +38,6 @@ build/
 ### Ambiente ###
 .env
 .env.*
+
+### Segredos locais (nunca commitar) ###
+application-secrets.properties
