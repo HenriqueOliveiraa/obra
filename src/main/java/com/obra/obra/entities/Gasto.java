@@ -15,7 +15,7 @@ import java.util.List;
 @Table(name = "gastos")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Gasto {
+public class Gasto extends AuditEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

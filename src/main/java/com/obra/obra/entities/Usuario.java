@@ -7,21 +7,20 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table(name = "comprovantes")
+@Table(name = "usuarios")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Comprovante extends AuditEntity {
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long gastoId;
-    private String nomeArquivo;
-    private String tipoArquivo;
+    private String nome;
 
-    @Column(columnDefinition = "TEXT")
-    private String dataUrl;
+    @Column(unique = true, nullable = false)
+    private String email;
 
-    private String dataUpload;
+    @Column(nullable = false)
+    private String senha;
 }

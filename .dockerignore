@@ -1,0 +1,7 @@
+target/
+.git/
+.idea/
+.mvn/
+*.iml
+docker-compose.yml
+src/main/resources/application-secrets.properties
