@@ -12,4 +12,7 @@ WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 ENV SPRING_PROFILES_ACTIVE=prod
 EXPOSE 8080
-ENTRYPOINT ["java", "-Duser.timezone=America/Sao_Paulo", "-jar", "app.jar"]
+# Flags pensadas pra instancia pequena (512MB / 0.1 vCPU do Render free):
+# TieredStopAtLevel=1 acelera o startup, MaxRAMPercentage=75 aproveita a memoria
+# do container e SerialGC reduz overhead de threads/memoria do GC
+ENTRYPOINT ["java", "-Duser.timezone=America/Sao_Paulo", "-XX:MaxRAMPercentage=75.0", "-XX:+UseSerialGC", "-XX:TieredStopAtLevel=1", "-Xss512k", "-jar", "app.jar"]
