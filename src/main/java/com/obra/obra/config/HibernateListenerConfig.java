@@ -7,7 +7,11 @@ import org.hibernate.engine.spi.SessionFactoryImplementor;
 import org.hibernate.event.service.spi.EventListenerRegistry;
 import org.hibernate.event.spi.EventType;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 
+// Precisa ser eager mesmo com spring.main.lazy-initialization=true, senao o
+// @PostConstruct nunca roda e os listeners de auditoria nao sao registrados
+@Lazy(false)
 @Configuration
 @RequiredArgsConstructor
 public class HibernateListenerConfig {
